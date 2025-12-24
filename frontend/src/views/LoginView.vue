@@ -1,37 +1,22 @@
 <script setup>
 import { ref } from 'vue';
-import axios from 'axios';
 import { useRouter } from 'vue-router';
+import { useAuthStore } from '../stores/authStore';
 
 const router = useRouter();
+const authStore = useAuthStore();
 
-// Variabel Input
 const username = ref('');
 const password = ref('');
-
-// Variabel untuk pesan Error
-// Kalau kosong = tidak error. Kalau ada isinya = muncul kotak merah.
 const errorMessage = ref(''); 
 
 const handleLogin = async () => {
-  // Reset pesan error setiap kali tombol ditekan
   errorMessage.value = '';
 
   try {
-    const response = await axios.post('http://localhost:5005/auth/login', {
-      username: username.value,
-      password: password.value
-    });
-
-    // Simpan data
-    localStorage.setItem('token', response.data.token);
-    localStorage.setItem('user', JSON.stringify(response.data.user));
-
-    // LANGSUNG PINDAH (Tanpa Alert "Berhasil")
+    await authStore.login(username.value, password.value);
     router.push('/dashboard');
-
   } catch (error) {
-    // Tangkap pesan error dari Backend (misal: "Password salah!" atau "Username tidak ditemukan!")
     if (error.response && error.response.data) {
         errorMessage.value = error.response.data.message;
     } else {

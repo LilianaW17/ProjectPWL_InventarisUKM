@@ -30,6 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
+  `description` text DEFAULT NULL,
+  `code` varchar(10) DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -38,11 +41,11 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Busur (Bow)', '2025-12-22 18:49:43', '2025-12-22 18:49:43'),
-(2, 'Anak Panah (Arrow)', '2025-12-22 18:49:43', '2025-12-22 18:49:43'),
-(3, 'Target & Bantalan', '2025-12-22 18:49:43', '2025-12-22 18:49:43'),
-(4, 'Perlengkapan & Safety', '2025-12-22 18:49:43', '2025-12-22 18:49:43');
+INSERT INTO `categories` (`id`, `name`, `description`, `code`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'Busur (Bow)', 'Peralatan utama memanah', 'BSR', 1, '2025-12-22 18:49:43', '2025-12-22 18:49:43'),
+(2, 'Anak Panah (Arrow)', 'Amunisi panahan', 'ARR', 1, '2025-12-22 18:49:43', '2025-12-22 18:49:43'),
+(3, 'Target & Bantalan', 'Sasaran tembak', 'TRG', 1, '2025-12-22 18:49:43', '2025-12-22 18:49:43'),
+(4, 'Perlengkapan & Safety', 'Pelindung diri', 'SFT', 1, '2025-12-22 18:49:43', '2025-12-22 18:49:43');
 
 -- --------------------------------------------------------
 

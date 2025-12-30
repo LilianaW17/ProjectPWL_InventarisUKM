@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2025 at 08:59 PM
+-- Generation Time: Dec 28, 2025 at 04:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -66,6 +66,13 @@ CREATE TABLE `items` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`id`, `category_id`, `name`, `stock`, `price`, `purchase_date`, `condition_status`, `description`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Arrow Carbon', 12, 35000.00, '2025-08-07', 'Baik', 'Arrow carbon dengan vanes warna biru', '2025-12-24 17:48:50', '2025-12-24 17:48:50');
+
 -- --------------------------------------------------------
 
 --
@@ -88,7 +95,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `phone_number`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'adrin', '$2b$10$KO7bYvOBiJoJZb5OVjbWPusPO41v0ZsoPB2Er.f0CJV8AH8kwVKJ2', 'Adrian Wijaya', NULL, 'pengurus', '2025-12-22 19:21:56', '2025-12-22 19:21:56');
+(1, 'adrin', '$2b$10$KO7bYvOBiJoJZb5OVjbWPusPO41v0ZsoPB2Er.f0CJV8AH8kwVKJ2', 'Adrian Wijaya', NULL, 'pengurus', '2025-12-22 19:21:56', '2025-12-22 19:21:56'),
+(2, 'ddimaz', '$2b$10$MSS7F2IPzhhWMr9jjjm5feoY6zoB8N7zBZy4gqj/c4TxdejtrzIgS', 'Dimas Darmawan', NULL, 'anggota', '2025-12-27 16:32:24', '2025-12-27 16:32:24');
 
 --
 -- Indexes for dumped tables
@@ -128,13 +136,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
